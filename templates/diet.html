@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+<table border="1" align='center'>
+    <caption>Таблица Калорийности продуктов</caption>
+    <tr>
+     <th>Наименование</th>
+     <th>Калории</th>
+     <th>Белки</th>
+     <th>Жиры</th>
+     <th>Углеводы</th>
+    </tr>
+    
+    {% for key in src %}
+        {% set Title = key['Title'] %}
+        {% set Calories = key['Calories'] %}
+        {% set Proteins = key['Proteins'] %}
+        {% set Fats = key['Fats'] %}
+        {% set Carbohydrates = key['Carbohydrates'] %}
+        <tr><td>{{Title}}</td><td>{{Calories}}</td><td>{{Proteins}}</td><td>{{Fats}}</td><td>{{Carbohydrates}}</td></tr>
+    {% endfor %}
+        
+   </table>
+{% endblock %}
